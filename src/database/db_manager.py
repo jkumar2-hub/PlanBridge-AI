@@ -1,4 +1,4 @@
-﻿"""Database Manager for SQLite transactions, audit logs, and schedule tracking."""
+"""Database Manager for SQLite transactions, audit logs, and schedule tracking."""
 import json
 import sqlite3
 import uuid
@@ -324,3 +324,25 @@ class DatabaseManager:
             match_id=match_id,
             notes=f"Planner manual resolution: {notes}",
         )
+
+    def reset_and_reseed(self, schedule_json_path: Optional[Path] = None) -> int:
+        """Completely cleans transactional tables and reseeds schedule activities."""
+        with self.get_connection() as conn:
+            conn.execute("DELETE FROM contradiction_flags")
+            conn.execute("DELETE FROM audit_log")
+            conn.execute("DELETE FROM match_results")
+            conn.execute("DELETE FROM extracted_events")
+            conn.execute("DELETE FROM field_reports")
+            conn.execute("DELETE FROM schedule_activities")
+            conn.commit()
+        return self.seed_schedule(schedule_json_path, overwrite=True)
+
+    def update_contradiction_status(self, flag_id: str, new_status: str) -> bool:
+        with self.get_connection() as conn:
+            conn.execute(
+                "UPDATE contradiction_flags SET status = ? WHERE flag_id = ?",
+                (new_status, flag_id),
+            )
+            conn.commit()
+        return True
+
