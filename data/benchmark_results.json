@@ -1,0 +1,21 @@
+{
+  "latency": {
+    "avg_ms": 99.04,
+    "p95_ms": 137.15,
+    "min_ms": 30.24,
+    "max_ms": 137.38
+  },
+  "accuracy": {
+    "match_accuracy_pct": 100.0,
+    "decision_accuracy_pct": 100.0,
+    "total_benchmark_reports": 6
+  },
+  "cost": {
+    "tokens_per_report": 500,
+    "cost_per_report_gemini_usd": 6e-05,
+    "monthly_cost_gemini_usd": 0.063,
+    "cost_per_report_openai_usd": 0.00012,
+    "monthly_cost_openai_usd": 0.126,
+    "assumed_daily_volume": 35
+  }
+}
