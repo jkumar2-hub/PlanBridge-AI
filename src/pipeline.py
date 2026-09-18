@@ -1,5 +1,5 @@
 ﻿"""Unified End-to-End Pipeline for SIH PS 26122.
-Ingestion (Text & Spreadsheet) -> LLM Extraction -> Embedding & Fuzzy Matching -> Confidence Scoring -> Routing & Audit.
+Ingestion (Text & Spreadsheet) -> LLM Extraction -> Embedding & Fuzzy Matching -> Confidence Scoring -> Contradiction Checking -> Routing & Audit.
 """
 import os
 import sys
@@ -15,6 +15,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.config import BASELINE_SCHEDULE_PATH, CONFIDENCE_THRESHOLD, DB_PATH
+from src.contradiction.detector import ContradictionDetector
 from src.database.db_manager import DatabaseManager
 from src.extraction.extractor_interface import ExtractedEvent, ExtractionResult
 from src.extraction.llm_extractor import LLMExtractor
@@ -32,6 +33,7 @@ class Pipeline:
         confidence_threshold: float = CONFIDENCE_THRESHOLD,
         embedding_engine: Optional[EmbeddingEngine] = None,
         llm_provider: Optional[str] = None,
+        enable_contradiction_detection: bool = True,
     ):
         self.db = DatabaseManager(db_path or str(DB_PATH))
         self.text_adapter = TextAdapter()
@@ -51,6 +53,12 @@ class Pipeline:
 
         # Warm up embedding index
         self.embedding_engine.index_activities(activities)
+
+        self.enable_contradiction_detection = enable_contradiction_detection
+        if self.enable_contradiction_detection:
+            self.contradiction_detector = ContradictionDetector(self.db)
+        else:
+            self.contradiction_detector = None
 
     def process_file(self, file_path: str) -> Dict[str, Any]:
         """Processes either text daily reports or CSV/Excel spreadsheets."""
@@ -103,9 +111,10 @@ class Pipeline:
             discipline_hint=discipline_hint,
         )
 
-        # 3. Matching & Schedule Updates
+        # 3. Matching, Contradiction Detection & Schedule Updates
         activities = self.db.get_all_activities()
         processed_events = []
+        all_contradictions = []
 
         for evt in extraction.events:
             self.db.save_extracted_event(
@@ -144,6 +153,15 @@ class Pipeline:
                     notes=f"Auto-linked from field text: '{evt.activity_description[:60]}...' (Score: {match_res['confidence_score']:.2f})",
                 )
 
+            # Check for cross-discipline contradictions
+            if self.contradiction_detector:
+                flags = self.contradiction_detector.scan_for_contradictions(
+                    event=evt,
+                    matched_activity_id=match_res["candidate_activity_id"],
+                )
+                if flags:
+                    all_contradictions.extend(flags)
+
             processed_events.append({
                 "event": evt.model_dump(),
                 "match": {
@@ -160,6 +178,7 @@ class Pipeline:
             "reported_by": reported_by or "Field Supervisor",
             "events_count": len(processed_events),
             "latency_ms": elapsed_ms,
+            "contradictions": all_contradictions,
             "results": processed_events,
         }
 
@@ -179,6 +198,7 @@ class Pipeline:
 
         activities = self.db.get_all_activities()
         processed_events = []
+        all_contradictions = []
 
         for row in parsed.get("rows", []):
             evt_id = f"EVT-XLS-{uuid.uuid4().hex[:8]}"
@@ -227,6 +247,14 @@ class Pipeline:
                     notes=f"Auto-linked from spreadsheet row: '{evt.activity_description}' (Score: {match_res['confidence_score']:.2f})",
                 )
 
+            if self.contradiction_detector:
+                flags = self.contradiction_detector.scan_for_contradictions(
+                    event=evt,
+                    matched_activity_id=match_res["candidate_activity_id"],
+                )
+                if flags:
+                    all_contradictions.extend(flags)
+
             processed_events.append({
                 "event": evt.model_dump(),
                 "match": {
@@ -242,5 +270,6 @@ class Pipeline:
             "reported_by": parsed.get("reported_by"),
             "events_count": len(processed_events),
             "latency_ms": elapsed_ms,
+            "contradictions": all_contradictions,
             "results": processed_events,
         }
