@@ -1,0 +1,236 @@
+﻿[
+  {
+    "activity_id": "L5-CIV-101",
+    "name": "Excavation and soil compaction for Unit 3 Booster Pump foundation",
+    "discipline": "Civil",
+    "planned_start": "2026-09-20",
+    "planned_end": "2026-09-26",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": []
+  },
+  {
+    "activity_id": "L5-CIV-102",
+    "name": "RCC casting and pedestal curing for Unit 3 Main Booster Pump foundation",
+    "discipline": "Civil",
+    "planned_start": "2026-09-27",
+    "planned_end": "2026-10-04",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-CIV-101"]
+  },
+  {
+    "activity_id": "L5-CIV-103",
+    "name": "Equipment foundation grouting and anchor bolt fixing for booster pump",
+    "discipline": "Civil",
+    "planned_start": "2026-10-05",
+    "planned_end": "2026-10-09",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-CIV-102"]
+  },
+  {
+    "activity_id": "L5-CIV-104",
+    "name": "Structural pipe rack column foundation and pedestal construction Bay 1-3",
+    "discipline": "Civil",
+    "planned_start": "2026-09-22",
+    "planned_end": "2026-09-30",
+    "location": "Unit 3 Pipe Rack",
+    "dependency_ids": []
+  },
+  {
+    "activity_id": "L5-CIV-105",
+    "name": "Drain trench excavation and precast cover slab placement",
+    "discipline": "Civil",
+    "planned_start": "2026-10-01",
+    "planned_end": "2026-10-08",
+    "location": "Unit 3 Battery Limit",
+    "dependency_ids": ["L5-CIV-101"]
+  },
+  {
+    "activity_id": "L5-PIP-201",
+    "name": "Fabrication and fit-up of 12-inch crude suction manifold spool",
+    "discipline": "Piping",
+    "planned_start": "2026-09-28",
+    "planned_end": "2026-10-05",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": []
+  },
+  {
+    "activity_id": "L5-PIP-202",
+    "name": "GTAW and SMAW butt welding of 12-inch crude suction line joints",
+    "discipline": "Piping",
+    "planned_start": "2026-10-02",
+    "planned_end": "2026-10-08",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-PIP-201"]
+  },
+  {
+    "activity_id": "L5-PIP-203",
+    "name": "Non-destructive testing (NDT) radiography and DPT on suction line welds",
+    "discipline": "Piping",
+    "planned_start": "2026-10-06",
+    "planned_end": "2026-10-10",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-PIP-202"]
+  },
+  {
+    "activity_id": "L5-PIP-204",
+    "name": "Erection and alignment of 10-inch crude discharge header spools",
+    "discipline": "Piping",
+    "planned_start": "2026-10-05",
+    "planned_end": "2026-10-12",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-CIV-102"]
+  },
+  {
+    "activity_id": "L5-PIP-205",
+    "name": "Hydrostatic pressure testing of Unit 3 suction and discharge piping loops",
+    "discipline": "Piping",
+    "planned_start": "2026-10-12",
+    "planned_end": "2026-10-16",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-PIP-203", "L5-PIP-204"]
+  },
+  {
+    "activity_id": "L5-PIP-206",
+    "name": "Golden weld tie-in to existing main crude trunkline header",
+    "discipline": "Piping",
+    "planned_start": "2026-10-17",
+    "planned_end": "2026-10-20",
+    "location": "Unit 3 Tie-in Point TP-04",
+    "dependency_ids": ["L5-PIP-205"]
+  },
+  {
+    "activity_id": "L5-ELE-301",
+    "name": "Cable tray bracket fabrication and erection at Unit 3 pump house",
+    "discipline": "Electrical",
+    "planned_start": "2026-10-04",
+    "planned_end": "2026-10-09",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-CIV-102"]
+  },
+  {
+    "activity_id": "L5-ELE-302",
+    "name": "Laying of 11kV primary power feeder cable from Substation 2 to pump motor",
+    "discipline": "Electrical",
+    "planned_start": "2026-10-08",
+    "planned_end": "2026-10-14",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-ELE-301"]
+  },
+  {
+    "activity_id": "L5-ELE-303",
+    "name": "HT motor terminal glanding, termination, and phase rotation checking",
+    "discipline": "Electrical",
+    "planned_start": "2026-10-13",
+    "planned_end": "2026-10-17",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-ELE-302"]
+  },
+  {
+    "activity_id": "L5-ELE-304",
+    "name": "Earthing copper grid strip laying and test pit link connection",
+    "discipline": "Electrical",
+    "planned_start": "2026-09-28",
+    "planned_end": "2026-10-04",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-CIV-101"]
+  },
+  {
+    "activity_id": "L5-ELE-305",
+    "name": "Motor solo uncoupled run test and vibration baseline measurement",
+    "discipline": "Electrical",
+    "planned_start": "2026-10-18",
+    "planned_end": "2026-10-20",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-ELE-303"]
+  },
+  {
+    "activity_id": "L5-INS-401",
+    "name": "Installation of suction and discharge pressure transmitters PT-301 and PT-302",
+    "discipline": "Instrumentation",
+    "planned_start": "2026-10-09",
+    "planned_end": "2026-10-13",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-PIP-204"]
+  },
+  {
+    "activity_id": "L5-INS-402",
+    "name": "Field junction box JB-31 mounting and multi-pair signal cable termination",
+    "discipline": "Instrumentation",
+    "planned_start": "2026-10-05",
+    "planned_end": "2026-10-10",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-ELE-301"]
+  },
+  {
+    "activity_id": "L5-INS-403",
+    "name": "Instrument loop checking and 4-20mA calibration back to central DCS",
+    "discipline": "Instrumentation",
+    "planned_start": "2026-10-12",
+    "planned_end": "2026-10-16",
+    "location": "Unit 3 Control Room",
+    "dependency_ids": ["L5-INS-401", "L5-INS-402"]
+  },
+  {
+    "activity_id": "L5-INS-404",
+    "name": "Hydrocarbon gas detector sensors GD-301 to GD-304 installation and bump test",
+    "discipline": "Instrumentation",
+    "planned_start": "2026-10-11",
+    "planned_end": "2026-10-15",
+    "location": "Unit 3 Pump House",
+    "dependency_ids": ["L5-ELE-301"]
+  },
+  {
+    "activity_id": "L5-INS-405",
+    "name": "Emergency shutdown (ESD) valve actuator stroking and interlock verification",
+    "discipline": "Instrumentation",
+    "planned_start": "2026-10-16",
+    "planned_end": "2026-10-19",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-INS-403"]
+  },
+  {
+    "activity_id": "L5-HSE-501",
+    "name": "Scaffolding erection and green tagging for pipe rack structural access",
+    "discipline": "HSE",
+    "planned_start": "2026-09-25",
+    "planned_end": "2026-09-29",
+    "location": "Unit 3 Pipe Rack",
+    "dependency_ids": []
+  },
+  {
+    "activity_id": "L5-HSE-502",
+    "name": "Hot work safety barricading and fire watch barrier setup for manifold welding",
+    "discipline": "HSE",
+    "planned_start": "2026-10-01",
+    "planned_end": "2026-10-04",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-HSE-501"]
+  },
+  {
+    "activity_id": "L5-HSE-503",
+    "name": "Confined space entry clearance and gas monitoring for sump drain connection",
+    "discipline": "HSE",
+    "planned_start": "2026-10-03",
+    "planned_end": "2026-10-06",
+    "location": "Unit 3 Battery Limit",
+    "dependency_ids": ["L5-CIV-105"]
+  },
+  {
+    "activity_id": "L5-HSE-504",
+    "name": "Pre-Startup Safety Review (PSSR) walkthrough and Punch List A clearance",
+    "discipline": "HSE",
+    "planned_start": "2026-10-21",
+    "planned_end": "2026-10-24",
+    "location": "Unit 3 Battery Limit",
+    "dependency_ids": ["L5-PIP-206", "L5-ELE-305", "L5-INS-405"]
+  },
+  {
+    "activity_id": "L5-PIP-207",
+    "name": "Nitrogen purging and positive isolation of crude suction manifold",
+    "discipline": "Piping",
+    "planned_start": "2026-10-22",
+    "planned_end": "2026-10-25",
+    "location": "Unit 3 Manifold Area",
+    "dependency_ids": ["L5-PIP-206"]
+  }
+]

@@ -1,0 +1,8 @@
+﻿Date: 06-Oct-2026
+Discipline: C&I (Instrumentation)
+Site Eng: B. Saikia
+
+Progress Notes:
+Field junction box JB-31 mounted securely on structural stanchion in unit 3 pump house. 
+Started pulling 12-pair signal cables into junction box. Terminal dressing in progress, 40% completed today.
+Transmitters PT-301 delivery arrived at site warehouse.

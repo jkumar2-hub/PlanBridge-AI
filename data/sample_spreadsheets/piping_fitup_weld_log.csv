@@ -1,0 +1,6 @@
+﻿Line_Number,Spool_ID,Discipline,Activity_Description,Location,Report_Date,Status,Inspector_Remarks
+12-CR-01,SP-01,Piping,Fit-up of 12-inch crude suction manifold spool,Unit 3 Manifold Area,2026-10-02,Completed,Bevel angle verified 37.5 deg
+12-CR-01,SP-01,Piping,GTAW butt welding of 12-inch crude suction line root and hot pass,Unit 3 Manifold Area,2026-10-04,In-Progress,Welder W-08 preheating applied
+12-CR-01,SP-02,Piping,Erection and fit-up of 12-inch crude suction spool segment 2,Unit 3 Manifold Area,2026-10-03,Completed,Tacked with ER70S-6 wire
+10-CR-05,SP-03,Piping,Erection and alignment of 10-inch crude discharge header spools,Unit 3 Pump House,2026-10-06,Started,Chain block rigging positioned
+12-CR-01,SP-01,Piping,Non-destructive testing NDT radiography of suction line welds,Unit 3 Manifold Area,2026-10-07,In-Progress,1 of 3 joints shot and film reviewed
