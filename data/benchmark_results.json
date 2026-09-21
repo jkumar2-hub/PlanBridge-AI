@@ -1,9 +1,9 @@
 {
   "latency": {
-    "avg_ms": 99.04,
-    "p95_ms": 137.15,
-    "min_ms": 30.24,
-    "max_ms": 137.38
+    "avg_ms": 91.53,
+    "p95_ms": 128.2,
+    "min_ms": 27.69,
+    "max_ms": 128.26
   },
   "accuracy": {
     "match_accuracy_pct": 100.0,
