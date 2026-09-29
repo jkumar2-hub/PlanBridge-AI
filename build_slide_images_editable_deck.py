@@ -83,21 +83,53 @@ details = [
     ("• PS Category: ", "Software (Enterprise PMIS & AI Layer)"),
     ("• Team ID: ", "SIH2026-T1646"),
     ("• Team Name: ", "#TheAnanta Innovators"),
+    ("• Live Prototype Demo: ", "https://planbridge-ai.streamlit.app"),
 ]
 
 for idx, (label, val) in enumerate(details):
     p = tf_det.paragraphs[0] if idx == 0 else tf_det.add_paragraph()
-    p.space_before = Pt(6)
+    p.space_before = Pt(5)
     r1 = p.add_run()
     r1.text = label
     r1.font.bold = True
-    r1.font.size = Pt(10)
+    r1.font.size = Pt(9.5)
     r1.font.color.rgb = COLOR_DARK
     r2 = p.add_run()
     r2.text = val
-    r2.font.bold = (label in ["• Team ID: ", "• Team Name: ", "• Problem Statement ID: "])
-    r2.font.size = Pt(10)
-    r2.font.color.rgb = COLOR_OCHRE if label in ["• Team ID: ", "• Team Name: "] else COLOR_DARK
+    r2.font.bold = (label in ["• Team ID: ", "• Team Name: ", "• Problem Statement ID: ", "• Live Prototype Demo: "])
+    r2.font.size = Pt(9.5)
+    if label == "• Live Prototype Demo: ":
+        r2.font.color.rgb = RGBColor(29, 78, 216)
+        r2.font.underline = True
+        r2.hyperlink.address = "https://planbridge-ai.streamlit.app"
+    else:
+        r2.font.color.rgb = COLOR_OCHRE if label in ["• Team ID: ", "• Team Name: "] else COLOR_DARK
+
+# 3. Live Cloud Demo Pill Button on Slide 1
+demo_btn = slide1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.55), Inches(6.8), Inches(6.8), Inches(0.48))
+demo_btn.fill.solid()
+demo_btn.fill.fore_color.rgb = COLOR_NAVY
+demo_btn.line.color.rgb = COLOR_OCHRE
+demo_btn.line.width = Pt(1.5)
+tf_btn = demo_btn.text_frame
+tf_btn.word_wrap = True
+tf_btn.margin_left = tf_btn.margin_right = tf_btn.margin_top = tf_btn.margin_bottom = Inches(0.04)
+p_btn = tf_btn.paragraphs[0]
+p_btn.alignment = PP_ALIGN.CENTER
+r_b1 = p_btn.add_run()
+r_b1.text = "🌐 LIVE INTERACTIVE CLOUD DEMO:  "
+r_b1.font.name = "Segoe UI"
+r_b1.font.size = Pt(10)
+r_b1.font.bold = True
+r_b1.font.color.rgb = COLOR_WHITE
+r_b2 = p_btn.add_run()
+r_b2.text = "https://planbridge-ai.streamlit.app"
+r_b2.font.name = "Segoe UI"
+r_b2.font.size = Pt(10)
+r_b2.font.bold = True
+r_b2.font.color.rgb = RGBColor(251, 146, 60)
+r_b2.font.underline = True
+r_b2.hyperlink.address = "https://planbridge-ai.streamlit.app"
 
 # ==============================================================================
 # SLIDE 2: PROPOSED SOLUTION
@@ -133,10 +165,37 @@ slide3 = prs.slides.add_slide(blank_layout)
 img3 = SRC_4K_DIR / "Slide_3_Platform_Preview_4K.png"
 slide3.shapes.add_picture(str(img3), Inches(0), Inches(0), width=Inches(13.333), height=Inches(7.5))
 
-h_box3 = slide3.shapes.add_textbox(Inches(5.0), Inches(0.45), Inches(6.5), Inches(0.6))
+h_box3 = slide3.shapes.add_textbox(Inches(4.2), Inches(0.45), Inches(4.5), Inches(0.6))
 tf_h3 = h_box3.text_frame
 tf_h3.margin_left = tf_h3.margin_top = tf_h3.margin_bottom = tf_h3.margin_right = 0
-set_para(tf_h3, "PLATFORM PREVIEW & ARCHITECTURE", size_pt=20, bold=True, color=COLOR_NAVY)
+set_para(tf_h3, "PLATFORM PREVIEW", size_pt=20, bold=True, color=COLOR_NAVY)
+
+# Live Demo Badge on Slide 3 Top Right
+demo_pill3 = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(8.3), Inches(0.45), Inches(4.5), Inches(0.48))
+demo_pill3.fill.solid()
+demo_pill3.fill.fore_color.rgb = RGBColor(240, 245, 255)
+demo_pill3.line.color.rgb = RGBColor(29, 78, 216)
+demo_pill3.line.width = Pt(1.2)
+tf_p3 = demo_pill3.text_frame
+tf_p3.word_wrap = True
+tf_p3.margin_left = tf_p3.margin_right = tf_p3.margin_top = tf_p3.margin_bottom = Inches(0.04)
+p_p3 = tf_p3.paragraphs[0]
+p_p3.alignment = PP_ALIGN.CENTER
+r_p3_tag = p_p3.add_run()
+r_p3_tag.text = "🔗 Live Demo: "
+r_p3_tag.font.name = "Segoe UI"
+r_p3_tag.font.size = Pt(10)
+r_p3_tag.font.bold = True
+r_p3_tag.font.color.rgb = COLOR_NAVY
+
+r_p3_link = p_p3.add_run()
+r_p3_link.text = "https://planbridge-ai.streamlit.app"
+r_p3_link.font.name = "Segoe UI"
+r_p3_link.font.size = Pt(10)
+r_p3_link.font.bold = True
+r_p3_link.font.color.rgb = RGBColor(29, 78, 216)
+r_p3_link.font.underline = True
+r_p3_link.hyperlink.address = "https://planbridge-ai.streamlit.app"
 
 # ==============================================================================
 # SLIDE 4: FEASIBILITY AND VIABILITY

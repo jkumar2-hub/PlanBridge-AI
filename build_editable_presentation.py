@@ -168,14 +168,32 @@ details = [
     ("PS Category: ", "Software (Enterprise PMIS & AI Layer)"),
     ("Team ID: ", "SIH2026-T1646"),
     ("Team Name: ", "#TheAnanta Innovators"),
+    ("Live Prototype Demo: ", "https://planbridge-ai.streamlit.app"),
 ]
 
 for idx, (label, val) in enumerate(details):
     p = tf_det.paragraphs[0] if idx == 0 else tf_det.add_paragraph()
-    p.space_after = Pt(6)
-    format_run(p.add_run(), "•  ", font_name="Segoe UI", size_pt=12, bold=True, color=COLOR_OCHRE)
-    format_run(p.add_run(), label, font_name="Segoe UI", size_pt=12, bold=True, color=COLOR_NAVY)
-    format_run(p.add_run(), val, font_name="Segoe UI", size_pt=12, bold=False, color=COLOR_DARK)
+    p.space_after = Pt(5)
+    format_run(p.add_run(), "•  ", font_name="Segoe UI", size_pt=11.5, bold=True, color=COLOR_OCHRE)
+    format_run(p.add_run(), label, font_name="Segoe UI", size_pt=11.5, bold=True, color=COLOR_NAVY)
+    if label == "Live Prototype Demo: ":
+        r_link = p.add_run()
+        format_run(r_link, val, font_name="Segoe UI", size_pt=11.5, bold=True, color=COLOR_BLUE_LINK, underline=True)
+        r_link.hyperlink.address = "https://planbridge-ai.streamlit.app"
+    else:
+        format_run(p.add_run(), val, font_name="Segoe UI", size_pt=11.5, bold=False, color=COLOR_DARK)
+
+# Live Cloud Demo Banner on Slide 1
+demo_pill = add_card(slide1, Inches(0.8), Inches(6.8), Inches(7.0), Inches(0.48), fill_color=COLOR_NAVY, border_color=COLOR_OCHRE)
+tf_dp = demo_pill.text_frame
+tf_dp.word_wrap = True
+tf_dp.margin_left = tf_dp.margin_right = tf_dp.margin_top = tf_dp.margin_bottom = Inches(0.04)
+p_dp = tf_dp.paragraphs[0]
+p_dp.alignment = PP_ALIGN.CENTER
+format_run(p_dp.add_run(), "🌐 LIVE INTERACTIVE CLOUD DEMO:  ", font_name="Segoe UI", size_pt=10, bold=True, color=COLOR_WHITE)
+r_demo = p_dp.add_run()
+format_run(r_demo, "https://planbridge-ai.streamlit.app", font_name="Segoe UI", size_pt=10, bold=True, color=RGBColor(251, 146, 60), underline=True)
+r_demo.hyperlink.address = "https://planbridge-ai.streamlit.app"
 
 # Right Graphic: SIH Bulb + Hardhat Engineers
 s1_graphic = ASSETS_DIR / "slide1_hero_graphic.png"
