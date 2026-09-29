@@ -1,4 +1,4 @@
-﻿"""Text Ingestion Adapter for free-text daily reports and supervisor diaries."""
+"""Text Ingestion Adapter for free-text daily reports and supervisor diaries."""
 import os
 import re
 import uuid

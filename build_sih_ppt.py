@@ -1,4 +1,4 @@
-﻿"""Build the official SIH 2026 PPT for PS 26122 (Oil India Limited)."""
+"""Build the official SIH 2026 PPT for PS 26122 (Oil India Limited)."""
 import os
 import sys
 from pathlib import Path

@@ -1,4 +1,4 @@
-﻿"""Confidence Scorer combining semantic similarity, discipline matching, and date proximity."""
+"""Confidence Scorer combining semantic similarity, discipline matching, and date proximity."""
 from datetime import datetime
 from typing import Any, Dict, Optional
 from src.config import CONFIDENCE_THRESHOLD, WEIGHT_DATE, WEIGHT_DISCIPLINE, WEIGHT_SEMANTIC

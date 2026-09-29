@@ -1,4 +1,4 @@
-﻿"""Benchmark & Measurement Script for Step 5 Checkpoint.
+"""Benchmark & Measurement Script for Step 5 Checkpoint.
 Measures latency, extrapolates LLM API costs, and evaluates match accuracy against ground-truth labels.
 """
 import json

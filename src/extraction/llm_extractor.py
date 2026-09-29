@@ -1,4 +1,4 @@
-﻿"""LLM Extractor for transforming unstructured site text into structured events."""
+"""LLM Extractor for transforming unstructured site text into structured events."""
 import json
 import os
 import re

@@ -1,4 +1,4 @@
-﻿"""Application configuration and centralized scoring weights/thresholds."""
+"""Application configuration and centralized scoring weights/thresholds."""
 import os
 from pathlib import Path
 

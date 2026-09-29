@@ -1,4 +1,4 @@
-﻿"""Calibration and Threshold Tuning Script for Step 2 Checkpoint."""
+"""Calibration and Threshold Tuning Script for Step 2 Checkpoint."""
 import os
 import sys
 from pathlib import Path

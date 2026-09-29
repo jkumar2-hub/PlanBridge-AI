@@ -1,4 +1,4 @@
-﻿"""End-to-End Pipeline Integration Tests."""
+"""End-to-End Pipeline Integration Tests."""
 import json
 import os
 import sys

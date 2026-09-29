@@ -1,4 +1,4 @@
-﻿# Python artifacts
+# Python artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -44,3 +44,10 @@ env/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Heavy 8K Bitmap Cache (Backed up in Downloads/SIHPS2/)
+slides_8k/
+slide_images_8k/
+exported_editable_slides/
+test_*.png
+ref_slide_*.png

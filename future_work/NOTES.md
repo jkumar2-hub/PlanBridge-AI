@@ -1,4 +1,4 @@
-﻿# Future Work & Deliberate Scope Cuts
+# Future Work & Deliberate Scope Cuts
 
 This document records architectural extensions and deliberate scope reductions set aside during the 1-week build sprint for **SIH PS 26122: Intelligent Data Capture & Schedule-Linking Layer (Oil India Limited)**. These items are documented to ensure clear post-hackathon continuation without cluttering the critical path.
 

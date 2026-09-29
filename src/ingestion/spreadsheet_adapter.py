@@ -1,4 +1,4 @@
-﻿"""Spreadsheet Ingestion Adapter for multi-row discipline CSV/Excel logs."""
+"""Spreadsheet Ingestion Adapter for multi-row discipline CSV/Excel logs."""
 import uuid
 from datetime import datetime
 from pathlib import Path

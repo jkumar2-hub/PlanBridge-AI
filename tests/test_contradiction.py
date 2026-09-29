@@ -1,4 +1,4 @@
-﻿"""Verification of Cross-Discipline Contradiction Detection."""
+"""Verification of Cross-Discipline Contradiction Detection."""
 import os
 import sys
 from pathlib import Path

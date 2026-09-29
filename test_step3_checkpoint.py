@@ -1,4 +1,4 @@
-﻿"""Step 3 Verification: Audit Trail, Review Queue, and Contradiction Detection."""
+"""Step 3 Verification: Audit Trail, Review Queue, and Contradiction Detection."""
 import os
 import sys
 from pathlib import Path

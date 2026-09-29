@@ -1,4 +1,4 @@
-﻿"""Embedding Engine using sentence-transformers (all-MiniLM-L6-v2) and RapidFuzz."""
+"""Embedding Engine using sentence-transformers (all-MiniLM-L6-v2) and RapidFuzz."""
 from typing import Any, Dict, List, Optional
 import numpy as np
 from rapidfuzz import fuzz
