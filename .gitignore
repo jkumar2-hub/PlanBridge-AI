@@ -30,9 +30,11 @@ env/
 .env
 *.env.local
 
-# SQLite database
+# SQLite database & data artifacts
 *.db
 *.sqlite3
+data/*.db
+data/*.sqlite3
 
 # IDE / Editor
 .vscode/
@@ -45,9 +47,16 @@ env/
 .coverage
 htmlcov/
 
-# Heavy 8K Bitmap Cache (Backed up in Downloads/SIHPS2/)
-slides_8k/
+# Heavy Slide Decks, Images & Presentation Assets (Stored in Downloads/SIHPS2/)
+*.pptx
+*.ppt
+*.pdf
+slide_images/
+slide_images_4k/
 slide_images_8k/
+slides_4k/
+slides_8k/
+assets/
 exported_editable_slides/
 test_*.png
 ref_slide_*.png
